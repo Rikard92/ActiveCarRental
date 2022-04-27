@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>This Webaplicaton was developed using <a href="https://docs.microsoft.com/aspnet/core">ASP.NET Core</a>.</p>
+        
+   
+
+</div>
+
+<div class="text-left">
+       <h4>Test fall 1: Utlämning av bil</h4>
+       <p>Steg 1: Navigera till "Rent a Car".</p>
+       <p>Steg 2: Välj en bill i listan "All Rental cars available".</p>
+       <p>Steg 3: Tryck på "Rent" för den bilen.</p>
+       <p>Steg 4: Välj ett datum i "TimeRented", om den är tom så automatisk väljer den dagens datum, och fyll i Namn, Efternamn, och Personnumer.</p>
+       <p>Steg 5: Klicka på knappen "Rent Car"".</p>
+       <p>Steg 6: See on bilen har hamnat i listan under "All Rental cars that are used"</p>
+       
+       <h4>Test fall 2: Återlämning av bil</h4>
+       <p>Steg 1: Navigera till "Rent a Car".</p>
+       <p>Steg 2: Välj en bill i listan "All Rental cars that are used".</p>
+       <p>Steg 3: Tryck på "Return Car" för den bilen.</p>
+       <p>Steg 4: Fyll i hyr många km den bile har kört.</p>
+       <p>Steg 5: Välj ett datum i "TimeReturned", om den är tom så automatisk väljer den dagens datum.</p>
+       <p>Steg 6: Tryck på knappen "Return Car"</p>
+       <p>Steg 7: See on bilen har hamnat i listan under "All Rental cars that are used"</p>
+</div>

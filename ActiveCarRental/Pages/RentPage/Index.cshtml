@@ -1,0 +1,133 @@
+﻿@page
+@model ActiveCarRental.Pages.RentPage.IndexModel
+
+
+<p>
+    <h3>All Rental cars available</h3>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RentalCars[0].RegisterId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RentalCars[0].CarType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.RentalCars) {
+     @if(Model.HasReturndDate(item))
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegisterId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarType)
+            </td>
+            <td>
+                <a asp-page="./Rent Car" asp-route-id="@item.RegisterId">Rent</a> |
+                <a asp-page="./Car Details" asp-route-id="@item.RegisterId">Details</a> |
+            </td>
+        </tr>
+}}
+    </tbody>
+</table>
+
+<p>
+    <h3>All Rental cars that are used</h3>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RentalCars[0].RegisterId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RentalCars[0].CarType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.RentalCars) {
+     @if(!Model.HasReturndDate(item))
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegisterId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarType)
+            </td>
+            <td>
+                <a asp-page="./Return Car" asp-route-id="@item.RegisterId">ReturnCar</a> |
+                <a asp-page="./Car Details" asp-route-id="@item.RegisterId">Details</a> |
+            </td>
+        </tr>
+}}
+    </tbody>
+</table>
+
+<p>
+    <h3>All bookings</h3>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CarBookings[0].TimeRented)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarBookings[0].TimeReturned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarBookings[0].KilometerReading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarBookings[0].Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarBookings[0].Register)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarBookings[0].Kost)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CarBookings) {
+           
+               <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeRented)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeReturned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KilometerReading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Register.RegisterId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kost)
+            </td>
+            <td>
+                @*<a asp-page="./Details" asp-route-id="@item.BookingId">Details</a> |*@
+                <a asp-page="./Details" asp-route-id="@item.BookingId">Details</a>
+            </td>
+        </tr> 
+            
+            
+}
+    </tbody>
+</table>

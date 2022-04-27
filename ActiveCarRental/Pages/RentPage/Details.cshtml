@@ -1,0 +1,81 @@
+﻿@page
+@model ActiveCarRental.Pages.RentPage.DetailsModel
+
+@{
+    ViewData["Title"] = "CarDetails";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+
+<h3>Booking Details</h3>
+<div>
+    <h4>CarBooking</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarBooking.BookingId)
+        </dt>        
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarBooking.BookingId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarBooking.Register)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarBooking.Register.RegisterId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarBooking.TimeRented)
+        </dt>        
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarBooking.TimeRented)
+        </dd>
+            @if (Model.CarBooking.TimeReturned!=null)
+            {
+               <dt class="col-sm-2">
+                 @Html.DisplayNameFor(model => model.CarBooking.TimeReturned)
+               </dt>
+               <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CarBooking.TimeReturned)
+               </dd> 
+            }
+            
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarBooking.KilometerReading)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarBooking.KilometerReading)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CarBooking.Customer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarBooking.Customer.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CarBooking.Customer.LastName)
+        </dd>
+        
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="CarBooking.BookingId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿@page
+@model ActiveCarRental.Pages.RentPage.RentCarModel
+
+<h3>CarBooking</h3>
+<h4>For a @Model.RentalCar.CarType: @Model.RentalCar.RegisterId</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CarBooking.TimeRented" class="control-label"></label>
+                <input asp-for="CarBooking.TimeRented" class="form-control" asp-items="ViewBag.TimeRented" />
+                <span asp-validation-for="CarBooking.TimeRented" class="text-danger"></span>
+            </div>
+            <h4>Customer</h4>
+            <div class="form-group">
+                <label asp-for="Customer.FirstName" class="control-label"></label>
+                <input asp-for="Customer.FirstName" class="form-control" />
+                <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.LastName" class="control-label"></label>
+                <input asp-for="Customer.LastName" class="form-control" />
+                <span asp-validation-for="Customer.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.SSN" class="control-label"></label>
+                <input asp-for="Customer.SSN" maxlength="10" class="form-control" />
+                <span asp-validation-for="Customer.SSN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Rent Car" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

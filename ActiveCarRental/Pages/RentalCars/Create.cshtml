@@ -1,0 +1,50 @@
+﻿@page
+@model ActiveCarRental.Pages.RentalCars.CreateModel
+
+@{
+    ViewData["Title"] = "CreateCar";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+
+<h4>RentalCar</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RentalCar.RegisterId" class="control-label"></label>
+                <input asp-for="RentalCar.RegisterId" class="form-control" />
+                <span asp-validation-for="RentalCar.RegisterId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <label asp-for="RentalCar.CarType" class="control-label"></label>
+                @Html.DropDownListFor(m => m.RentalCar.CarType, new SelectList(Model.CarTypes), new { @class = "form-control", @style = "width:50%;" })<br />
+                <span asp-validation-for="RentalCar.CarType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>
